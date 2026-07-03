@@ -11,7 +11,6 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -371,8 +370,6 @@ public class DynmapWorldGuardPlugin extends JavaPlugin {
         }
     }
     
-    private Metrics metrics;
-    
     public void onEnable() {
         info("initializing");
         PluginManager pm = getServer().getPluginManager();
@@ -395,8 +392,6 @@ public class DynmapWorldGuardPlugin extends JavaPlugin {
         /* If both enabled, activate */
         if(dynmap.isEnabled() && wgp.isEnabled())
             activate();
-        /* Start up metrics */
-		metrics = new Metrics(this, 14178);
     }
     
     private void registerCustomFlags() {

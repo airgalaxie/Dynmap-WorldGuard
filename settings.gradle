@@ -1,0 +1,35 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven {
+            name = "papermc"
+            url = uri("https://repo.papermc.io/repository/maven-public/")
+        }
+        maven {
+            name = "dynmap-repo"
+            url = uri("https://repo.mikeprimm.com/")
+        }
+        maven {
+            name = "spigot-repo"
+            url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+        }
+        maven {
+            name = "enginehub-maven"
+            url = uri("https://maven.enginehub.org/repo/")
+        }
+        maven {
+            name = "essentials"
+            url = uri("https://repo.essentialsx.net/releases/")
+        }
+        mavenCentral()
+    }
+}
+
+rootProject.name = "Dynmap-WorldGuard"

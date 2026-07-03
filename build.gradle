@@ -1,0 +1,90 @@
+plugins {
+    id "java"
+    alias(libs.plugins.shadow)
+}
+
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
+group = "org.dynmap"
+version = "1.4-SNAPSHOT"
+
+def buildTimestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMdd-HHmm"))
+def timestampedJarName = "${base.archivesName.get()}-${project.version}-${buildTimestamp}.jar"
+
+base {
+    archivesName = "Dynmap-WorldGuard"
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaTarget.get())
+}
+
+dependencies {
+    compileOnly(libs.dynmap.api) {
+        exclude group: "org.bukkit"
+        exclude group: "org.spigotmc"
+    }
+    compileOnly(libs.dynmap.core.api) {
+        exclude group: "org.bukkit"
+        exclude group: "org.spigotmc"
+    }
+    compileOnly libs.paper.api
+    compileOnly(libs.worldedit.bukkit) {
+        exclude group: "org.bukkit"
+        exclude group: "org.spigotmc"
+    }
+    compileOnly(libs.worldguard.bukkit) {
+        exclude group: "org.bukkit"
+        exclude group: "org.spigotmc"
+    }
+
+    implementation libs.squirrelid
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = libs.versions.javaTarget.get().toInteger()
+}
+
+processResources {
+    filesMatching(["plugin.yml", "paper-plugin.yml", "*.txt"]) {
+        expand(project: [version: project.version], version: project.version)
+    }
+}
+
+shadowJar {
+    archiveClassifier = ""
+    archiveVersion = "${project.version}-${buildTimestamp}"
+
+    dependencies {
+        include(dependency("com.sk89q:squirrelid:${libs.versions.squirrelid.get()}"))
+    }
+
+    relocate "com.sk89q.squirrelid", "com.sk89q.worldguard.util.profile"
+    minimize()
+}
+
+jar {
+    enabled = false
+}
+
+assemble {
+    dependsOn shadowJar
+}
+
+tasks.register("packageZip", Zip) {
+    dependsOn shadowJar
+    archiveClassifier = "bin"
+    from(tasks.named("shadowJar").flatMap { it.archiveFile }) {
+        rename { timestampedJarName }
+    }
+}
+
+tasks.register("printJavaCompatibility") {
+    doLast {
+        println "Gradle runtime Java: ${JavaVersion.current()}"
+        println "Compiled bytecode target: Java ${libs.versions.javaTarget.get()}"
+    }
+}

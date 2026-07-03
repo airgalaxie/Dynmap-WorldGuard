@@ -1,0 +1,17 @@
+name: Dynmap-WorldGuard
+main: org.dynmap.worldguard.DynmapWorldGuardPlugin
+version: "${project.version}"
+description: WorldGuard region overlay support for dynmap
+authors:
+  - mikeprimm
+api-version: "26.2"
+dependencies:
+  server:
+    dynmap:
+      required: true
+      load: BEFORE
+      join-classpath: true
+    WorldGuard:
+      required: true
+      load: BEFORE
+      join-classpath: true
