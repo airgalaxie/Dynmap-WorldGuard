@@ -2,11 +2,11 @@
 javaTarget = "25"
 dynmap = "3.8"
 paper = "26.2.build.+"
-bukkit = "1.15.2-R0.1-SNAPSHOT"
+bukkit = "26.1.2-R0.1-SNAPSHOT"
 worldedit = "7.2.0"
 worldguard = "7.0.0"
 squirrelid = "0.2.0"
-shadow = "9.4.3"
+shadow = "9.6.1"
 
 [libraries]
 dynmap-api = { group = "us.dynmap", name = "dynmap-api", version.ref = "dynmap" }
