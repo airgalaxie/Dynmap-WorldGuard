@@ -12,7 +12,7 @@ Compatibility
 | Component | Version |
 | --- | --- |
 | Java bytecode target | 25 |
-| Gradle wrapper | 9.6.1 |
+| Gradle wrapper | 9.7.1 |
 | Paper API | 26.2.build.+ |
 | dynmap API | 3.8 |
 | WorldEdit Bukkit | 7.2.0 |
