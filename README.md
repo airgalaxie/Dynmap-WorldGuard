@@ -15,7 +15,7 @@ Compatibility
 | Gradle wrapper | 9.7.1 |
 | Paper API | 26.2.build.+ |
 | dynmap API | 3.8 |
-| WorldEdit Bukkit | 7.2.0 |
+| WorldEdit Bukkit | 7.4.5 |
 | WorldGuard Bukkit | 7.0.0 |
 
 The build must be run with a JDK that can target Java 25. A newer JDK, such as
@@ -52,7 +52,7 @@ Changes from master
   `WorldGuard` server dependencies.
 - Raised the compile target from Java 8 to Java 25.
 - Updated dynmap API from `3.3-SNAPSHOT` to `3.8`.
-- Kept WorldEdit Bukkit `7.2.0`, WorldGuard Bukkit `7.0.0`, and SquirrelID
+- Kept WorldEdit Bukkit `7.4.5`, WorldGuard Bukkit `7.0.0`, and SquirrelID
   `0.2.0`.
 - Removed bStats usage and the bStats shaded dependency from the plugin.
 
