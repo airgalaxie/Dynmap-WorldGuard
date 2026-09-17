@@ -13,7 +13,7 @@ Compatibility
 | --- | --- |
 | Java bytecode target | 25 |
 | Gradle wrapper | 9.7.1 |
-| Paper API | 26.2.build.+ |
+| Paper API | 26.3.build.+ |
 | dynmap API | 3.8 |
 | WorldEdit Bukkit | 7.4.5 |
 | WorldGuard Bukkit | 7.0.0 |
@@ -47,7 +47,7 @@ Changes from master
 - Replaced the Maven build files with Gradle wrapper files, `settings.gradle`,
   `build.gradle`, and a Gradle version catalog.
 - Switched from the Bukkit API dependency to Paper API
-  `io.papermc.paper:paper-api:26.2.build.+`.
+  `io.papermc.paper:paper-api:26.3.build.+`.
 - Added Paper's `paper-plugin.yml` metadata with required `dynmap` and
   `WorldGuard` server dependencies.
 - Raised the compile target from Java 8 to Java 25.
