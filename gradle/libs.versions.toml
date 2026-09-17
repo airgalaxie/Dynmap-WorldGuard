@@ -1,7 +1,7 @@
 [versions]
 javaTarget = "25"
 dynmap = "3.8"
-paper = "26.2.build.+"
+paper = "26.3.build.+"
 bukkit = "26.1.2-R0.1-SNAPSHOT"
 worldedit = "7.4.5"
 worldguard = "7.0.0"
